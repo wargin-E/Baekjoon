@@ -1,0 +1,21 @@
+import math
+information=input().split(" ")
+xm=int(information[0])
+vx=int(information[1])
+vy=int(information[2])
+xa=int(information[3])
+va=int(information[4])
+tk=int(information[5])
+xcoordinate=xm+vx*tk
+ycoordinate=vy*tk-16*tk*tk
+l=math.sqrt((xcoordinate-xa)*(xcoordinate-xa)+ycoordinate*ycoordinate)
+tl=tk-l/va
+if (xm+vx*tk-xa)==0:
+    angle=90
+else:
+    tangent=(vy*tk-16*tk*tk)/(xm+vx*tk-xa)
+    angle=math.degrees(math.atan(tangent))
+if tk>=vy/16 or tl<0:
+    print("start running")
+else:
+    print(tl," ",angle)
