@@ -1,0 +1,29 @@
+N=int(input())
+f=[2,4,7]
+for k in range(0,N):
+    adding=f[len(f)-3]+f[len(f)-2]+f[len(f)-1]
+    f.append(adding)
+g=[3,8,17]
+for k in range(0,N):
+    adding=3*g[len(g)-3]+2*g[len(g)-2]+g[len(g)-1]
+    g.append(adding)
+if N==1:
+    print(0)
+elif N==2:
+    print(1)
+elif N==3:
+    print(4)
+elif N==4:
+    print(10)
+elif N==5:
+    print(29)
+elif N==6:
+    print(76)
+elif N==7:
+    print(191)
+else:
+    count=g[N-4]+3*g[N-5]+4*g[N-6]+f[N-4]+3*f[N-5]+5*f[N-6]+2*g[N-7]+3*f[N-7]
+    for k in range(4,N-3):
+        count=count+f[k-3]*g[N-k-3]+f[k-4]*g[N-k-3]+f[k-3]*g[N-k-4]
+    answer=count%1000000007
+    print(answer)
